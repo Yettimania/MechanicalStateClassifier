@@ -2,4 +2,4 @@
 
 Work in Progress...
 
-![](./notebooks/ClassificationMech.gif)
+![](./figs/ClassificationMech.gif)

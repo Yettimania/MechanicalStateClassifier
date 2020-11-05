@@ -1,3 +1,4 @@
 /notebooks/*.mp4
 /notebooks/AnimationExample.ipynb
+/src/__pycache__/*
 animatedGIF.gif

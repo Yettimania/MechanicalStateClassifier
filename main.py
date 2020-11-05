@@ -8,6 +8,7 @@ This is the main script for creating a model and predictinga simulation of live 
 import pandas as pd
 import numpy as np
 from src.data import DataMetrics,MinMaxNormalization,OneShot,ModelSplit
+from src.model import compile_and_fit,Dense
 
 # Enter csv data path if different or change file name
 csv_path = "./data/mech_state_labels.csv"
@@ -29,3 +30,11 @@ df, label_df = OneShot(df, 'labels')
 
 # Next we split the two dataframes into test and training data.
 X_train, X_test, y_train, y_test = ModelSplit(df, label_df, 0.3)
+
+# Now we'll import a model we've defined, compile the model and begin training.
+MAX_EPOCHS = 5
+history = compile_and_fit(Dense, X_train, y_train, X_test, y_test, MAX_EPOCHS)
+
+# We can export this model
+print('\nSaving model...')
+Dense.save('./models/Dense.h5')
